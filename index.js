@@ -6,7 +6,7 @@ app.use(compression());
 
 app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
 app.set('view engine','ejs');
-app.set('views','./build');
+app.set('views',path.join(__dirname, 'build'));
 
 
 app.listen(process.env.PORT || 4000, function(){
