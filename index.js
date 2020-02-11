@@ -7,7 +7,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
 
 // Require static assets from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Set 'views' directory for any views 
 // being rendered res.render()
