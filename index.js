@@ -6,15 +6,9 @@ app.use(compression());
 
 app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
 
-// Require static assets from public folder
-// app.use(express.static('./build'));
-
-// Set 'views' directory for any views 
-// being rendered res.render()
-
 // Set view engine as EJS
-// app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.set('views', './build');
 
 
