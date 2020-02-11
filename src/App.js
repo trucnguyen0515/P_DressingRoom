@@ -23,21 +23,7 @@ class App extends Component {
   reset = () => {
     this.setState({
       choosenItem : []
-    }, () => {
-      document.querySelector(".BikiniTop").style.display = "none"
-      setTimeout(() => {
-        document.querySelector("._BackGround").insertAdjacentHTML('beforeend',`
-        <div class="oops" style="background:white; position:absolute; top: 0; left:50%; transform: translate(48px, 19px);
-        padding: 5px 30px;
-        border-radius: 20px;">Oopps...<div>
-      `);
-      },500);
-      setTimeout(() => {
-        document.querySelector(".oops").remove();
-        document.querySelector(".BikiniTop").style.display = "block"
-      }, 800);
-    }) 
-
+    })
   }
 
   render() {
