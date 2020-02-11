@@ -4,18 +4,18 @@ const path = require('path');
 var compression = require('compression');
 app.use(compression());
 
-// app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
+app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
 
 // Require static assets from public folder
-app.use(express.static('./build'));
+// app.use(express.static('./build'));
 
 // Set 'views' directory for any views 
 // being rendered res.render()
-app.set('views', './build');
 
 // Set view engine as EJS
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+// app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+app.set('views', './build');
 
 
 app.listen(process.env.PORT || 4000, function(){
@@ -35,5 +35,5 @@ app.get('*.js', function (req, res, next) {
 });
 
 app.get('/', function(req,res){
-    res.render('index.html');
+    res.render('index');
 })
