@@ -5,8 +5,17 @@ var compression = require('compression');
 app.use(compression());
 
 app.use(express.static(path.join(__dirname,"build"),{ maxage: '365d' }));
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname, 'build'));
+
+// Require static assets from public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Set 'views' directory for any views 
+// being rendered res.render()
+app.set('views', './build');
+
+// Set view engine as EJS
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 
 app.listen(process.env.PORT || 4000, function(){
